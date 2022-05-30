@@ -34,18 +34,29 @@ const items = [
 
 const Categories = () => {
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <View style={{alignItems:'center',marginRight:30}}>
-      <Image source={items[0].image} style={{
-          width: 50,
-          height: 40,
-          resizeMode:'contain'
-      }}/>
-      <Text style={{fontSize:13, fontWeight:"900"}}>{items[0].text}</Text>
-      </View>
-
+    <View style={{
+      marginTop:5,
+      backgroundColor:"#fff",
+      padding: 10,
+      paddingLeft:20,
       
-    </ScrollView>
+    }}>
+      
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    {items.map((item,index)=>(
+      <View key={index} style={{alignItems:'center',marginRight:30}}>
+  <Image source={item.image} style={{
+    width: 50,
+    height: 40,
+    resizeMode:'contain'
+  }}/>
+  <Text style={{fontSize:13, fontWeight:"900"}}>{item.text}</Text>
+  </View>
+
+
+))}
+</ScrollView>
+</View>
   )
 }
 
