@@ -8,41 +8,39 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 // x.open('GET', 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api');
 //           // I put "XMLHttpRequest" here, but you can use anything you want.
 //           x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-            
+
 //           x.send();
-const SearchBar =  (props) => {
+const SearchBar = (props) => {
+  { console.reportErrorsAsExceptions = false }
   return (
-    
+
     <View style={{ marginTop: 15, flexDirection: 'row' }}>
-      
+
 
       <GooglePlacesAutocomplete
-     query={{key: 'AIzaSyDgsVSbsSzlE4FM14cvU-wU3hxfIDjk7GY'}}
-      onPress={(data, details = null) => {
-        // 'details' is provided when fetchDetails = true
-       const city =(data.description.split(",")[0]);
-       console.log(city)
-       props.cityHandler(city)
-      }}
       
-                              
+        query={{ key: 'AIzaSyB9UxJSCCzIVjMDvC0ZfbQP4l604w_W63I' }}
+        requestUrl={{
+          useOnPlatform: 'web', // or "all"
+          url:
+            'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api', // or any proxy server that hits https://maps.googleapis.com/maps/api
+          headers: {
 
-           requestUrl={{
-        useOnPlatform: 'web', // or "all"
-        url:
-          'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api', // or any proxy server that hits https://maps.googleapis.com/maps/api
-        headers: {
-      
-          Authorization: `an auth token`, // if required for your proxy
-         
-          
+            Authorization: `an auth token`, // if required for your proxy
+          },
+        }}
+        onPress={(data = null) => {
+          // 'details' is provided when fetchDetails = true
+          const city = (data.description.split(",")[0]);
+          console.log(city)
+          props.cityHandler(city)
+        }}
 
 
 
-        },
-      }}
+     
 
-        
+
 
         placeholder='Search'
         styles={{
@@ -71,15 +69,15 @@ const SearchBar =  (props) => {
 
         renderRightButton={() => (
           <View style={{
-            flexDirection:'row',
-            marginRight:8,
-            backgroundColor:"white",
+            flexDirection: 'row',
+            marginRight: 8,
+            backgroundColor: "white",
             padding: 9,
-            borderRadius:30,
-            alignItems:'center'
+            borderRadius: 30,
+            alignItems: 'center'
 
-            }}> 
-          <AntDesign name='clockcircle' size={11}/>
+          }}>
+            <AntDesign name='clockcircle' size={11} />
             <Text>search</Text>
           </View>
         )}

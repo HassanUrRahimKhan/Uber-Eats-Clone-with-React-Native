@@ -1,18 +1,21 @@
-import {  SafeAreaView,StyleSheet, Text, View, StatusBar, ScrollView } from 'react-native';
+import {  SafeAreaView,StyleSheet, Text, View, StatusBar, ScrollView, Alert } from 'react-native';
 //import SafeAreaView from 'react-native-safe-area-context';
 import {React, useState, useEffect} from 'react';
 import Headertabs from '../components/Headertabs';
 import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
 import RestaurantItem, { localRestaurants } from "../components/RestaurantItem"
+import { Divider } from 'react-native-elements';
+import BottomTabs from '../components/BottomTabs';
  
 // const [activeTab, setActiveTab] = useState("Delivery");
 
 // const YELP_API_KEY = "";
 
 const Home = () => {
-  const [city, setCity] = useState("illionis");
+  const [city, setCity] = useState("chicago");
   const [restaurantData, setRestaurantData] = useState(localRestaurants)
+  const [activeTab, setActiveTab] = useState("Delivery");
   // console.log("🚀 ~ file: Home.jsx ~ line 14 ~ Home ~ restaurantData", restaurantData)
 
   // const getRestaurantFromYelp =  () =>{
@@ -42,7 +45,7 @@ useEffect(()=>{
     
     "headers": {
         "x-rapidapi-host": "e-commerce12.p.rapidapi.com",
-        "x-rapidapi-key": "8e54de1340msh5c27c70969fa0f9p1c55abjsnf1f932c971d3",
+        "x-rapidapi-key": "AIzaSyBr5CFgi1ZZlYPrBFhwgXi15_qkaqUJOck",
         Authorization: `Bearer JUTjB52l3DETgz3YWbFIvxzZR3ev7CQlhxJ6HK3i_DoomCmDcFfQGEk6xdtseGwylDhOmF3LaDrcL0uVJAgNb33vAEab3qn-PRJzKwdWTXt296JZOjWXgrhkZpmUYnYx`,
         
       }
@@ -50,17 +53,35 @@ useEffect(()=>{
     
     .then(response => response.json())
     .then(json => {
-      // console.log(json)
-      setRestaurantData(json.businesses);
+      setRestaurantData(json.businesses.filter((business)=>
+      business.transactions.includes(activeTab.toLowerCase())));
+      // if(json.error.code=== "loc"){
+      //   setRestaurantData(json.businesses);
+      // }
+      // else{
+      //   Alert.alert(
+      //     "OOPS!",
+      //     "Empty Todo",
+      //     [
+      //       {
+      //         text: "err",
+      //         onPress: () => console.log("Cancel Pressed"),
+      //         style: "cancel"
+      //       },
+      //       { text: "OK", onPress: () => console.log("OK Pressed") }
+      //     ]
+      //   );
+      // }
+     
       //console.log("🚀 ~ file: Home.jsx ~ line 14 ~ Home ~ restaurantData", restaurantData)
       
     })
     .catch(err => {
-      console.error(err);
+      console.log(err)
     })
     
     console.log(city)
-  },[city])
+  },[city,activeTab])
   
   
   
@@ -79,7 +100,7 @@ useEffect(()=>{
      
     }}>
      <View style={{backgroundColor:'white', padding:15}}>
-     <Headertabs />
+     <Headertabs activeTab={activeTab} setActiveTab={setActiveTab}/>
      <SearchBar cityHandler={setCity}/>
      </View>
 
@@ -90,6 +111,8 @@ useEffect(()=>{
      <RestaurantItem restaurantData={restaurantData} />
      
      </ScrollView>
+     <Divider width={1}></Divider>
+     <BottomTabs></BottomTabs>
     </SafeAreaView>
   )
 }
