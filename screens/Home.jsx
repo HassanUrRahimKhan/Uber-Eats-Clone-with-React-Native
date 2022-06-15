@@ -1,12 +1,12 @@
 import {  SafeAreaView,StyleSheet, Text, View, StatusBar, ScrollView, Alert } from 'react-native';
-//import SafeAreaView from 'react-native-safe-area-context';
+
 import {React, useState, useEffect} from 'react';
-import Headertabs from '../components/Headertabs';
-import SearchBar from '../components/SearchBar';
-import Categories from '../components/Categories';
-import RestaurantItem, { localRestaurants } from "../components/RestaurantItem"
+ import Headertabs from '../components/home/Headertabs';
+import SearchBar from '../components/home/SearchBar';
+import Categories from '../components/home/Categories';
+import RestaurantItem, { localRestaurants } from "../components/home/RestaurantItem"
 import { Divider } from 'react-native-elements';
-import BottomTabs from '../components/BottomTabs';
+import BottomTabs from '../components/home/BottomTabs';
  
 // const [activeTab, setActiveTab] = useState("Delivery");
 

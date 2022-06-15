@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import Home from '../screens/Home'
+
 import { React, useState } from 'react'
 
 const HeaderButton = (props) => {
