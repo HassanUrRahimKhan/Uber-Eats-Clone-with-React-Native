@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image ,ScrollView} from 'react-native';
+import { Divider } from 'react-native-elements';
+
 
 
 const foods = [
@@ -22,6 +24,24 @@ const foods = [
         price: "$12.40",
         image: "https://carlsbadcravings.com/wp-content/uploads/2019/10/chicken-lasagna-28.jpg"
     },
+    {
+        title: "lasgana",
+        description: 'with white butter lettuce and white whine',
+        price: "$12.40",
+        image: "https://carlsbadcravings.com/wp-content/uploads/2019/10/chicken-lasagna-28.jpg"
+    },
+    {
+        title: "lasgana",
+        description: 'with white butter lettuce and white whine',
+        price: "$12.40",
+        image: "https://carlsbadcravings.com/wp-content/uploads/2019/10/chicken-lasagna-28.jpg"
+    },
+    {
+        title: "lasgana",
+        description: 'with white butter lettuce and white whine',
+        price: "$12.40",
+        image: "https://carlsbadcravings.com/wp-content/uploads/2019/10/chicken-lasagna-28.jpg"
+    },
 
 ]
 
@@ -30,7 +50,7 @@ const MenuItem = () => {
 
 
 
-        <>
+        <ScrollView showsVerticalScrollIndicator>
             {foods.map((food, index) => (
                 <View key={index}>
 
@@ -41,11 +61,12 @@ const MenuItem = () => {
                     </View>
 
 
-
+                    <Divider width={0.5} orientation="vertical"/>
                 </View>
+                
             ))}
 
-        </>
+        </ScrollView>
 
     )
 }

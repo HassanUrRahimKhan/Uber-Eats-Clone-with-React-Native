@@ -3,6 +3,10 @@ import React from 'react'
 
 const image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvuvdwFRArltVceRTxnlyUGLoM5FTUMKkatg&usqp=CAU";
 
+const yelpRestaurantInfo = {
+    name: ""
+}
+
 const title = "Farmhouse Kitchen Thai Cuisine";
 
 const Description = " Thai • Comfort Food • $$• 🎫 • 4 ⭐(2913+)";
