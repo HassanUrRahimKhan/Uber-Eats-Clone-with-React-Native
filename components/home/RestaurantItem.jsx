@@ -11,7 +11,7 @@ export const localRestaurants = [
         price: "$$",
         reviews: 1244,
         rating: 4.5,
-        key:1
+        key: 1
     },
     {
         name: "Benihana",
@@ -21,7 +21,7 @@ export const localRestaurants = [
         price: "$$",
         reviews: 1244,
         rating: 3.7,
-        key:2
+        key: 2
     },
     {
         name: "India's Grill",
@@ -31,26 +31,40 @@ export const localRestaurants = [
         price: "$$",
         reviews: 700,
         rating: 4.9,
-        key:3
+        key: 3
     },
 ];
 
-const RestaurantItem = (props) => {
+const RestaurantItem = ({ navigation, ...props }) => {
     return (
-        <TouchableOpacity activeOpacity={1} style={{ marginBottom: 30 }}>
-            {props.restaurantData.map((resutaurant,index) => (
-                <View
-                    key= {index}
-                    style={{
-                        marginTop: 10, padding: 15, backgroundColor: "#fff",
-                       
-                    }}
-                >
-                    <RestaurantImage image={resutaurant.image_url} />
-                    <RestaurantInfo name={resutaurant.name} rating={resutaurant.rating} />
-                </View>
-            ))}
-        </TouchableOpacity>
+        <>
+            {props.restaurantData.map((resutaurant, index) => (
+              
+                <TouchableOpacity   key={index} activeOpacity={1} style={{ marginBottom: 30 }} onPress={
+                    () => {
+                        navigation.navigate("RestaurantDetail", {
+                            name: resutaurant.name,
+                            image: resutaurant.image_url,
+                            price: resutaurant.price,
+                            reviews: resutaurant.review_count,
+                            rating: resutaurant.rating,
+                            categories: resutaurant.categories,
+                        })
+                    }
+                } >
+                    <View
+                        key={index}
+                        style={{
+                            marginTop: 10, padding: 15, backgroundColor: "#fff",
+
+                        }}
+                    >
+                        <RestaurantImage image={resutaurant.image_url} />
+                        <RestaurantInfo name={resutaurant.name} rating={resutaurant.rating} />
+                    </View>
+                </TouchableOpacity>
+            ))};
+        </>
     )
 }
 

@@ -12,7 +12,7 @@ import BottomTabs from '../components/home/BottomTabs';
 
 // const YELP_API_KEY = "";
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [city, setCity] = useState("chicago");
   const [restaurantData, setRestaurantData] = useState(localRestaurants)
   const [activeTab, setActiveTab] = useState("Delivery");
@@ -108,7 +108,7 @@ useEffect(()=>{
      
 
      <Categories/>
-     <RestaurantItem restaurantData={restaurantData} />
+     <RestaurantItem restaurantData={restaurantData} navigation={navigation}  />
      
      </ScrollView>
      <Divider width={1}></Divider>

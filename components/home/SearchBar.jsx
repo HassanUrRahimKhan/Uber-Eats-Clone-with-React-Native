@@ -19,7 +19,7 @@ const SearchBar = (props) => {
 
       <GooglePlacesAutocomplete
       
-        query={{ key: 'AIzaSyBmptsLtkxJn2DwHxDVo6xrTIQqJZM-npM' }}
+        query={{ key: 'AIzaSyAMsRe8L-wFcplvHB7VQBYo5O1bbWa8vOc' }}
         requestUrl={{
           useOnPlatform: 'web', // or "all"
           url:

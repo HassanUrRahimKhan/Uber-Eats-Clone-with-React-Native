@@ -1,21 +1,12 @@
+import * as React from 'react';
+import RootNavigation from './Navigation';
 
-import { StyleSheet, Text, View } from 'react-native';
 
-import Home from './screens/Home';
-import RestaurantDetail from './screens/RestaurantDetail';
 
 
 export default function App() {
   return (
-    <RestaurantDetail/>
+    <RootNavigation/>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
