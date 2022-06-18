@@ -10,7 +10,7 @@ const yelpRestaurantInfo = {
     reviews: "1500",
     rating: 4.5,
     categories: [{ title: "Indian" }, { title: "Comfort Food" }, { title: "Coffee" }],
-};
+}
 
 
 
@@ -41,7 +41,7 @@ const RestaurantName = (props) => (
         fontWeight: '600',
         marginTop: 10,
         marginHorizontal: 15
-    }}>{props.title}</Text>
+    }}>{props.name}</Text>
 )
 
 const RestaurantDescription = (props) => <Text style={{

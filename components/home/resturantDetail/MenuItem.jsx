@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image ,ScrollView} from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Divider } from 'react-native-elements';
-
+import { useDispatch } from 'react-redux';
 
 
 const foods = [
@@ -25,18 +25,8 @@ const foods = [
         price: "$12.40",
         image: "https://carlsbadcravings.com/wp-content/uploads/2019/10/chicken-lasagna-28.jpg"
     },
-    {
-        title: "lasgana",
-        description: 'with white butter lettuce and white whine',
-        price: "$12.40",
-        image: "https://carlsbadcravings.com/wp-content/uploads/2019/10/chicken-lasagna-28.jpg"
-    },
-    {
-        title: "lasgana",
-        description: 'with white butter lettuce and white whine',
-        price: "$12.40",
-        image: "https://carlsbadcravings.com/wp-content/uploads/2019/10/chicken-lasagna-28.jpg"
-    },
+  
+  
     {
         title: "lasgana",
         description: 'with white butter lettuce and white whine',
@@ -96,10 +86,6 @@ const FoodImage = ({ food }) => (
             style={{ width: 100, height: 100, borderRadius: 8 }}
         />
     </View>
-
-
-
-
 )
 
 const styles = StyleSheet.create({

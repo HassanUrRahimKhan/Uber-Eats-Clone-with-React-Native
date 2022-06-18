@@ -63,7 +63,7 @@ const RestaurantItem = ({ navigation, ...props }) => {
                         <RestaurantInfo name={resutaurant.name} rating={resutaurant.rating} />
                     </View>
                 </TouchableOpacity>
-            ))};
+            ))}
         </>
     )
 }
