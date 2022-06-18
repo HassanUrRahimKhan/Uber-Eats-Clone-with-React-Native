@@ -36,7 +36,14 @@ const foods = [
 
 ]
 
-const MenuItem = () => {
+
+const MenuItem = ({restaurantName}) => {
+    const dispatch = useDispatch();
+    const selectItem = (item, checkboxValue)=>dispatch({
+    type:'ADD_TO_CART',
+    payload: {...item, restaurantName: restaurantName,
+         checkboxValue:checkboxValue},
+});  
     return (
 
 
@@ -49,6 +56,7 @@ const MenuItem = () => {
                         <BouncyCheckbox
                         iconStyle={{borderColor: 'lightgrey', borderRadius: 0}}
                         fillColor="green"
+                        onPress={(checkboxValue) => selectItem(food, checkboxValue)}
                         />
 
                         <FoodInfo food={food} />
