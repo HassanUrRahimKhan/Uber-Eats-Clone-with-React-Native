@@ -41,8 +41,7 @@ const MenuItem = ({restaurantName}) => {
     const dispatch = useDispatch();
     const selectItem = (item, checkboxValue)=>dispatch({
     type:'ADD_TO_CART',
-    payload: {...item, restaurantName: restaurantName,
-         checkboxValue:checkboxValue},
+    payload: {...item, restaurantName: restaurantName, checkboxValue:checkboxValue},
 });  
     return (
 
