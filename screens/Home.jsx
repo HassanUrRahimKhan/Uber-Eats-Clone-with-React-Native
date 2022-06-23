@@ -13,7 +13,7 @@ import BottomTabs from '../components/home/BottomTabs';
 // const YELP_API_KEY = "";
 
 const Home = ({navigation}) => {
-  const [city, setCity] = useState("chicago");
+  const [city, setCity] = useState("Hollywood");
   const [restaurantData, setRestaurantData] = useState(localRestaurants)
   const [activeTab, setActiveTab] = useState("Delivery");
   // console.log("🚀 ~ file: Home.jsx ~ line 14 ~ Home ~ restaurantData", restaurantData)
